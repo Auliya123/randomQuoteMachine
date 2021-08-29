@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags for mobile friendly -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+  <title>Random Quote Machine</title>
+  <script src="quotes.js"></script>
+  <script>
+    //jika web load pertama kali akan memanggil fungsi init
+    window.onload = init;
+    function init() {
+      generateQuote();
+    }
+
+    function generateQuote() {
+      let quoteSize = QUOTE.length;
+      let randomIndex = Math.floor(Math.random() * quoteSize); //random angka dari 0 - 2
+      let randomQuote = QUOTE[randomIndex];
+
+      let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes";
+
+      let quoteApiFormat = randomQuote.quote.replace(/ /g, "%20");
+      let quoteAuthorFormat = randomQuote.author.replace(/ /g, "%20");
+      twitterLink == quoteApiFormat;
+      twitterLink == quoteAuthorFormat;
+      document.getElementById("tweet-quote").href = twitterLink;
+      document.getElementById("text").innerText = randomQuote.quote;
+      document.getElementById("author").innerText = randomQuote.author;
+    }
+  </script>
+  <style></style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-md-6 offset md-3">
+        <wrapper id="quote-box">
+          <div class="card">
+            <div class="card-header text-center">
+              Random Quote Machine
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <div id="text"></div>
+              </h5>
+              <p class="card-text">
+              <div id="author"></div>
+              </p>
+              <button id="new-quote" class="btn btn-success" onClick="generateQuote()">
+                New Quote
+              </button>
+              <a id="tweet-quote" class="btn btn-primary" target="_blank" href="twitter.com/intent/tweet">Tweet
+                Quote</a>
+            </div>
+          </div>
+        </wrapper>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+    integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
